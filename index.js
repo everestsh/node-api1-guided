@@ -1,7 +1,6 @@
 // import the server and start it!
 const http = require("http"); // built in node.js module to handle http traffic
 
-const hostname = "127.0.0.1"; // the local computer where the server is running
 const port = 3000; // a port we'll use to watch for traffic
 
 const server = http.createServer((req, res) => {
@@ -11,9 +10,9 @@ const server = http.createServer((req, res) => {
     res.end("Hello World from Node\n"); // end the request and send a response with the specified message
 });
 
-server.listen(port, hostname, () => {
+server.listen(port, () => {
     // start watching for connections on the port specified
-    console.log(`Server running at http://${hostname}:${port}/`);
+    console.log(`Server running on port ${port}/`);
 });
 
 //Run CMD
