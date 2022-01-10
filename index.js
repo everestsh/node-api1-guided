@@ -17,5 +17,6 @@ server.listen(port, hostname, () => {
 });
 
 //Run CMD
-//node index.js 
-//
+//  node index.js 
+//  npm init -y
+//  yarn add express
