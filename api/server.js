@@ -57,6 +57,12 @@ server.get('/api/dogs/:id', async (req, res) => {
         if (!dog) {
             res.status(404).json({ message: 'no dog' })
         } else {
+            // way 1
+            // res.status(200).json({
+            //     message: "success",
+            //     data: dog
+            // })
+            // way 2
             res.status(200).json(dog)
         }
     } catch (err) {
@@ -67,6 +73,9 @@ server.get('/api/dogs/:id', async (req, res) => {
     }
   })
 // [POST]   /api/dogs     (C of CRUD, create new dog from JSON payload)
+server.post('/api/dogs', async (req, res) => {
+    res.json('test create by endpoint') 
+})
 // [PUT]    /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
 
