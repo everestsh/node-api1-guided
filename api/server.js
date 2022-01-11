@@ -90,7 +90,18 @@ server.post('/api/dogs', async (req, res) => {
       }
 })
 // [PUT]    /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
+server.put('/api/dogs/:id', async (req, res) => {
+// http get :9000/api/dogs  -v  ; to get id
+// http put :9000/api/dogs/sHvJT  -v
+   res.json('test update by endpoint')  
+})
+
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
+server.delete('/api/dogs/:id', async (req, res) => {
+    // http get :9000/api/dogs  -v  ; to get id
+    // http delete :9000/api/dogs/sHvJT  -v
+       res.json('test delete by endpoint')  
+    })
 
 // EXPOSING THE SERVER TO OTHER MODULES
 module.exports = server
