@@ -44,6 +44,8 @@ server.get('/api/dogs/:id', async (req, res) => {
     console.log(req.params.id)
     // res.json('test req by endpoint')
     try {
+        // http get :9000/api/dogs  -v  ; to get id
+        // http get :9000/api/dogs/sHvJT  -v
         // w 1
         // const dog = await Dog.findById(req.params.id)
         // res.json(dog)
@@ -74,7 +76,18 @@ server.get('/api/dogs/:id', async (req, res) => {
   })
 // [POST]   /api/dogs     (C of CRUD, create new dog from JSON payload)
 server.post('/api/dogs', async (req, res) => {
-    res.json('test create by endpoint') 
+    // postman test data {"name": "ff", "weight": 6}
+    // http post  :9000/api/dogs name=ff weight=6  -v
+    // res.json('test create by endpoint') 
+    try {
+        const { name, weight } = req.body
+        console.log(name, weight)
+        const newDog = await Dog.create({ name, weight })
+        console.log(newDog)
+        res.status(201).json(newDog) // :(
+      } catch (err) {
+        res.status(500).json({ message: err.message })
+      }
 })
 // [PUT]    /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
